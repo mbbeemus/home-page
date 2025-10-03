@@ -17,3 +17,14 @@ def index(request):
     }
 
     return render(request, 'index.html', context)
+
+from django.views import generic
+
+class BookListView(generic.ListView):
+    model = Book
+    context_object_name = 'book_list'
+    template_name = 'catalog/book_list.html'
+
+
+class BookDetailView(generic.DetailView):
+    model = Book
